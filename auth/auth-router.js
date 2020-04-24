@@ -21,7 +21,7 @@ router.post("/login", (req, res) => {
   Users.findUser({ username }).then((user) => {
     if (user && bycrypt.compareSync(password, user[0].password)) {
       const token = tokenMaker(user);
-      res.status(201).json({ message: `welcome ${username}`, token });
+      res.status(200).json({ message: `welcome ${username}`, token });
     } else {
       res.status(401).json({ message: "you shall not pass" });
     }
