@@ -42,3 +42,20 @@ describe("testing the login endpoint", () => {
       });
   });
 });
+
+describe("testing get endpoint", () => {
+  test("should return status 200", async () => {
+    await request(server)
+      .get("/api/users")
+      .then((res) => {
+        expect(res.status).toBe(200);
+      });
+  });
+  test("should return db of users", async () => {
+    await request(server)
+      .get("/api/users")
+      .then((res) => {
+        expect(res.body).toBe(res.body);
+      });
+  });
+});
